@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
+import { Link, withRouter } from 'react-router-dom';
 import ApartmentAmentityView from './ApartmentAmentityView';
 
 class ApartmentView extends React.Component {
@@ -79,12 +80,15 @@ class ApartmentView extends React.Component {
             </div>
           </div>
         </div>
+        <Link to="/" className="go-home">
+          Go home
+        </Link>
       </div>
     );
   }
 }
 
-export default ApartmentView;
+export default withRouter(ApartmentView);
 
 ApartmentView.propTypes = {
   match: PropTypes.object.isRequired,
