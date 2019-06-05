@@ -49,9 +49,9 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "resolve": "1.6.0",
+    "sass-loader": "^7.1.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
     "webpack": "^4.29.6",
@@ -62,10 +62,10 @@
   "scripts": {
     "build-css": "node-sass --include-path scss scss/main.scss public/css/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "build:client-dev": "rm -rf dist && webpack --env.mode development",
-    "build:client-prod": "rm -rf dist && webpack --env.mode production",
-    "client:dev": "rm -rf dist && webpack-dev-server --env.mode development --open --hot",
-    "start": "npm run client:dev"
+    "build:dev": "rm -rf dist && webpack --env.mode development",
+    "build:prod": "rm -rf dist && webpack --env.mode production",
+    "start": "rm -rf dist && webpack-dev-server --env.mode development --open --hot",
+    "lint": "eslint ./src --fix"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",

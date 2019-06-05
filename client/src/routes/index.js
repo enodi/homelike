@@ -1,34 +1,34 @@
-import HomeView from '../containers/HomeView';
-import ApartmentView from '../containers/ApartmentView';
-import ApartmentLocationView from '../containers/ApartmentLocationView';
-import SearchApartmentView from '../containers/SearchApartmentView';
+import HomeView from "../containers/HomeView";
+import ApartmentView from "../containers/ApartmentView";
+// import ApartmentLocationView from "../containers/ApartmentLocationView";
+// import SearchApartmentView from "../containers/SearchApartmentView";
 
 const routes = {
-  default: [
+  main: [
     {
       exact: true,
-      path: '/',
+      path: "/",
       component: HomeView,
       id: 1,
     },
     {
       exact: true,
-      path: '/apartments/:apartmentId',
+      path: "/apartments/:apartmentId",
       component: ApartmentView,
       id: 2,
     },
-    {
-      exact: true,
-      path: '/locations/:locationId',
-      component: ApartmentLocationView,
-      id: 3,
-    },
-    {
-      exact: true,
-      path: '/search/:locationId',
-      component: SearchApartmentView,
-      id: 4,
-    },
+    // {
+    //   exact: true,
+    //   path: "/locations/:locationId",
+    //   component: ApartmentLocationView,
+    //   id: 3,
+    // },
+    // {
+    //   exact: true,
+    //   path: "/search/:locationId",
+    //   component: SearchApartmentView,
+    //   id: 4,
+    // },
   ],
 };
 

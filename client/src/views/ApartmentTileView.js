@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import ApartmentAmentityView from './ApartmentAmentityView';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import ApartmentAmentityView from "./ApartmentAmentityView";
 
 const ApartmentTileView = ({ apartment }) => {
   const image = `http://localhost:5000/images/apartments/${
@@ -18,8 +18,8 @@ const ApartmentTileView = ({ apartment }) => {
                 className="media-cover"
                 style={{
                   backgroundImage: `url(${image})`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover',
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
                 }}
               />
               <div className="_3Ts2_4uirKsrlm2Qb57Avw" />

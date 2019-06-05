@@ -1,13 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Loader from 'react-loader-spinner';
-import ApartmentTileView from './ApartmentTileView';
-import Header from '../containers/HeaderView';
+import React from "react";
+import PropTypes from "prop-types";
+import Loader from "react-loader-spinner";
+import ApartmentTileView from "./ApartmentTileView";
+import Header from "./HeaderView";
 
 class HomeView extends React.Component {
   componentDidMount() {
     this.props.fetchApartmentsList();
-    this.props.fetchLocations();
   }
 
   render() {

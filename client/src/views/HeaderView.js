@@ -1,25 +1,6 @@
-import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import Dropdown from './Dropdown';
+import React from "react";
 
-const Header = props => {
-  const [query, setQuery] = useState('');
-
-  // eslint-disable-next-line consistent-return
-  const search = searchQuery => {
-    // check location in state to ensure it's valid
-    const foundLocation = props.locations.filter(location =>
-      location.title.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
-    if (foundLocation.length === 0) {
-      // Not ideal but can be used for now :)
-      return alert("We don't have data for apartments in this location");
-    }
-    const locationId = foundLocation[0]._id;
-    props.history.push(`/search/${locationId}?query=${searchQuery}`);
-  };
-
+const Header = () => {
   return (
     <header className="header">
       <div className="container-lg header-content">
@@ -29,38 +10,9 @@ const Header = props => {
             alt="Homelike logo"
           />
         </a>
-        <Dropdown title="Locations">
-          {props.locations.length &&
-            props.locations.map(location => (
-              <Link to={`/locations/${location._id}`} key={location._id}>
-                {location.title}
-              </Link>
-            ))}
-        </Dropdown>
-        <div className="search">
-          <input
-            type="text"
-            name="text"
-            id="text"
-            placeholder="Search for Location..."
-            onChange={evt => setQuery(evt.target.value)}
-          />
-          <button
-            type="submit"
-            className="submit"
-            onClick={() => search(query)}
-          >
-            <i className="fa fa-search" />
-          </button>
-        </div>
       </div>
     </header>
   );
 };
 
-Header.propTypes = {
-  locations: PropTypes.array,
-  history: PropTypes.object,
-};
-
-export default withRouter(Header);
+export default Header;

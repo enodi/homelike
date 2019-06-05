@@ -1,19 +1,60 @@
 {
-    "extends": "airbnb",
+    "parser": "babel-eslint",
     "env": {
-        "browser": true
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "jest": true,
+        "mocha": true
     },
+    "settings": {
+        "react": {
+            "version": "16.8.6"
+        }
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018
+    },
+    "plugins": [
+        "react"
+    ],
     "rules": {
-        "import/prefer-default-export": "off",
-        "arrow-parens": "off",
-        "implicit-arrow-linebreak": "off",
-        "function-paren-newline": "off",
-        "react/jsx-filename-extension": "off",
-        "no-underscore-dangle": "off",
-        "react/forbid-prop-types": "off",
-        "react/destructuring-assignment": "off",
-        "react/require-default-props": "off",
-        "operator-linebreak": "off",
-        "no-restricted-syntax": "off"
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": [
+            "off"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "next"
+            }
+        ]
     }
 }

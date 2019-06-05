@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { uniqueId } from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import { uniqueId } from "lodash";
 
 export default class ApartmentAmentityView extends React.Component {
   render() {
@@ -22,5 +22,5 @@ export default class ApartmentAmentityView extends React.Component {
 
 ApartmentAmentityView.propTypes = {
   apartment: PropTypes.object.isRequired,
-  limit: PropTypes.string,
+  limit: PropTypes.number,
 };

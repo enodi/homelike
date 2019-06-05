@@ -1,10 +1,8 @@
-import { combineReducers } from 'redux';
-import apartmentsListReducer from './apartmentsListReducer';
-import apartmentReducer from './apartmentReducer';
-import locationsReducer from './locationsReducer';
+import { combineReducers } from "redux";
+import apartmentsListReducer from "./apartmentsListReducer";
+import apartmentReducer from "./apartmentReducer";
 
 export default combineReducers({
   apartmentsList: apartmentsListReducer,
-  apartmentItem: apartmentReducer,
-  locations: locationsReducer,
+  apartmentItem: apartmentReducer
 });

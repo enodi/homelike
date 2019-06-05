@@ -1,6 +1,6 @@
-import gql from 'graphql-tag';
-import { FETCH_APARTMENT, FETCH_APARTMENT_ERROR } from './types';
-import client from '../ApolloClient';
+import gql from "graphql-tag";
+import { FETCH_APARTMENT, FETCH_APARTMENT_ERROR } from "./types";
+import client from "../ApolloClient";
 
 export const fetchApartment = _id => dispatch => {
   client

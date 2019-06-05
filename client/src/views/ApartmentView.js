@@ -1,14 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Loader from 'react-loader-spinner';
-import { Link, withRouter } from 'react-router-dom';
-import ApartmentAmentityView from './ApartmentAmentityView';
+import React from "react";
+import PropTypes from "prop-types";
+import Loader from "react-loader-spinner";
+import ApartmentAmentityView from "./ApartmentAmentityView";
 
 class ApartmentView extends React.Component {
   componentWillMount() {
-    const {
-      match: { params },
-    } = this.props;
+    const { match: { params } } = this.props;
     const { apartmentId } = params;
     this.props.fetchApartment(apartmentId);
   }
@@ -37,8 +34,8 @@ class ApartmentView extends React.Component {
                       className="media-cover"
                       style={{
                         backgroundImage: `url(${image})`,
-                        backgroundPosition: 'center',
-                        backgroundSize: 'contain',
+                        backgroundPosition: "center",
+                        backgroundSize: "contain",
                       }}
                     />
                     <div className="_3Ts2_4uirKsrlm2Qb57Avw" />
@@ -80,15 +77,12 @@ class ApartmentView extends React.Component {
             </div>
           </div>
         </div>
-        <Link to="/" className="go-home">
-          Go home
-        </Link>
       </div>
     );
   }
 }
 
-export default withRouter(ApartmentView);
+export default ApartmentView;
 
 ApartmentView.propTypes = {
   match: PropTypes.object.isRequired,

@@ -1,16 +1,13 @@
-import { connect } from 'react-redux';
-import { fetchApartment } from '../actions/apartmentActions';
-import ApartmentView from '../views/ApartmentView';
+import { connect } from "react-redux";
+import { fetchApartment } from "../actions/apartmentActions";
+import ApartmentView from "../views/ApartmentView";
 
 const mapStateToProps = state => ({
-  apartment: state.apartmentItem.apartment || {},
-  error: state.error,
+  apartment: state.apartmentItem.apartment
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchApartment: apartmentId => {
-    dispatch(fetchApartment(apartmentId));
-  },
+  fetchApartment: id => dispatch(fetchApartment(id))
 });
 
 const ApartmentViewContainer = connect(
