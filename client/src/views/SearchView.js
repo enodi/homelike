@@ -17,7 +17,10 @@ const SearchView = ({
   const [rangeValue, setRangeValue] = useState(0);
   const [apartmentItems, setApartmentItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
-  let [count, setCounter] = useState(0);
+  const [roomCount, setRoomCount] = useState(0);
+  const [bedroomCount, setBedroomCount] = useState(0);
+  const [floorCount, setFloorCount] = useState(0);
+  const [bathroomCount, setBathroomCount] = useState(0);
   
   useEffect(() => {
     const { locationId } = match.params;
@@ -84,20 +87,83 @@ const SearchView = ({
   };
 
   const handleRoomsFilter = () => {
-    console.log(count, "count--==");
+    let filteredItems = [];
+    apartmentsForLocation.items.map(item => {
+      if (Number(item.details.rooms) === Number(roomCount)) {
+        filteredItems.push(item);
+      }
+    });
+    setApartmentItems(filteredItems);
   };
 
-  const handleIncrementCount = () => {
-    setCounter(count + 1);
+  const IncrementRoomsCount = () => {
+    setRoomCount(roomCount + 1);
   };
 
-  const handleDecrementCount = () => {
-    setCounter(count - 1);
+  const DecrementRoomsCount = () => {
+    setRoomCount(roomCount - 1);
+  };
+
+  const handleBedroomFilter = () => {
+    let filteredItems = [];
+    apartmentsForLocation.items.map(item => {
+      if (Number(item.details.bedrooms) === Number(bedroomCount)) {
+        filteredItems.push(item);
+      }
+    });
+    setApartmentItems(filteredItems);
+  };
+
+  const IncrementBedroomCount = () => {
+    setBedroomCount(bedroomCount + 1);
+  };
+
+  const DecrementBedroomCount = () => {
+    setBedroomCount(bedroomCount - 1);
+  };
+
+  const handleFloorFilter = () => {
+    let filteredItems = [];
+    apartmentsForLocation.items.map(item => {
+      if (Number(item.details.floor) === Number(floorCount)) {
+        filteredItems.push(item);
+      }
+    });
+    setApartmentItems(filteredItems);
+  };
+
+  const IncrementFloorCount = () => {
+    setFloorCount(floorCount + 1);
+  };
+
+  const DecrementFloorCount = () => {
+    setFloorCount(floorCount - 1);
+  };
+
+  const handleBathroomFilter = () => {
+    let filteredItems = [];
+    apartmentsForLocation.items.map(item => {
+      if (Number(item.details.bathrooms) === Number(bathroomCount)) {
+        filteredItems.push(item);
+      }
+    });
+    setApartmentItems(filteredItems);
+  };
+
+  const IncrementBathroomCount = () => {
+    setBathroomCount(bathroomCount + 1);
+  };
+
+  const DecrementBathroomCount = () => {
+    setBathroomCount(bathroomCount - 1);
   };
 
   const resetFilters = () => {
     setApartmentItems([]);
     setSelectedItems([]);
+    setRoomCount(0);
+    setBedroomCount(0);
+    setFloorCount(0);
   };
 
   const locationTitle = () => {
@@ -132,9 +198,21 @@ const SearchView = ({
           handleSizeToggle={handleSizeToggle}
           handlePriceToggle={handlePriceToggle}
           handleRoomsFilter={handleRoomsFilter}
-          handleIncrementCount={handleIncrementCount}
-          handleDecrementCount={handleDecrementCount}
-          count={count}
+          IncrementRoomsCount={IncrementRoomsCount}
+          DecrementRoomsCount={DecrementRoomsCount}
+          handleBedroomFilter={handleBedroomFilter}
+          IncrementBedroomCount={IncrementBedroomCount}
+          DecrementBedroomCount={DecrementBedroomCount}
+          roomCount={roomCount}
+          bedroomCount={bedroomCount}
+          IncrementFloorCount={IncrementFloorCount}
+          DecrementFloorCount={DecrementFloorCount}
+          handleFloorFilter={handleFloorFilter}
+          floorCount={floorCount}
+          IncrementBathroomCount={IncrementBathroomCount}
+          DecrementBathroomCount={DecrementBathroomCount}
+          handleBathroomFilter={handleBathroomFilter}
+          bathroomCount={bathroomCount}
         />
         <h1 className="location">{locationTitle()}</h1>
         <div className="location-wrapper">

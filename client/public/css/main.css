@@ -327,12 +327,9 @@ img {
   display: block;
 }
 
-.details__dropdown-items {
+.details__dropdown-items > div {
   display: flex;
   justify-content: space-between;
-}
-
-.details__dropdown-items > div {
   margin-bottom: 1.5em;
 }
 

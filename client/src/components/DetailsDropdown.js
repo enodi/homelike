@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { uniqueId } from "lodash";
+
+import RoomsFilter from "./RoomsFilter";
+import BedroomFilter from "./BedroomFilter";
+import FloorFilter from "./FloorFilter";
+import BathroomFilter from "./BathroomFilter";
 
 const DetailsDropdown = ({
   resetFilters,
   label,
-  apartmentItems,
   handleRoomsFilter,
-  handleIncrementCount,
-  handleDecrementCount,
-  count 
+  IncrementRoomsCount,
+  DecrementRoomsCount,
+  handleBedroomFilter,
+  IncrementBedroomCount,
+  DecrementBedroomCount,
+  roomCount,
+  bedroomCount,
+  IncrementFloorCount,
+  DecrementFloorCount,
+  handleFloorFilter,
+  floorCount,
+  IncrementBathroomCount,
+  DecrementBathroomCount,
+  handleBathroomFilter,
+  bathroomCount
 }) => {
-
-  const [uniqueValue, setUniqueValue] = useState([]);
-
-  useEffect(() => {
-    const details = apartmentItems.map(items => 
-      Object.keys(items.details).filter(item => item !== "__typename"));
-    setUniqueValue([...new Set(details.flat())]);
-  }, []);
 
   return (
     <div className="details__dropdown">
@@ -26,25 +33,32 @@ const DetailsDropdown = ({
         <i className="fa fa-caret-down"></i>
       </button>
       <div className="details__dropdown-content">
-        { 
-          uniqueValue && 
-          uniqueValue.map(value => (
-            <div key={uniqueId()} className="details__dropdown-items">
-              <div>
-                <span>{value}</span>
-                <button onClick={handleDecrementCount}>-</button>
-                <span>{count}</span>
-                <button onClick={handleIncrementCount}>+</button>
-              </div>
-              <div>
-                <button
-                  className="apply-button"
-                  onClick={handleRoomsFilter}
-                >Apply</button>
-              </div>
-            </div>
-          ))
-        }
+        <div className="details__dropdown-items">
+          <RoomsFilter
+            handleRoomsFilter={handleRoomsFilter}
+            IncrementRoomsCount={IncrementRoomsCount}
+            DecrementRoomsCount={DecrementRoomsCount}
+            roomCount={roomCount}
+          />
+          <BedroomFilter
+            handleBedroomFilter={handleBedroomFilter}
+            IncrementBedroomCount={IncrementBedroomCount}
+            DecrementBedroomCount={DecrementBedroomCount}
+            bedroomCount={bedroomCount}
+          />
+          <FloorFilter 
+            IncrementFloorCount={IncrementFloorCount}
+            DecrementFloorCount={DecrementFloorCount}
+            handleFloorFilter={handleFloorFilter}
+            floorCount={floorCount}
+          />
+          <BathroomFilter
+            IncrementBathroomCount={IncrementBathroomCount}
+            DecrementBathroomCount={DecrementBathroomCount}
+            handleBathroomFilter={handleBathroomFilter}
+            bathroomCount={bathroomCount}
+          />
+        </div>
         <div className="filter-buttons">
           <button className="reset-button" onClick={resetFilters}>Reset Filter</button>
         </div>
@@ -55,8 +69,23 @@ const DetailsDropdown = ({
 
 DetailsDropdown.propTypes = {
   label: PropTypes.string,
+  roomCount: PropTypes.number,
+  bedroomCount: PropTypes.number,
   resetFilters: PropTypes.func,
-  apartmentItems: PropTypes.array,
+  handleRoomsFilter: PropTypes.func,
+  IncrementRoomsCount: PropTypes.func,
+  DecrementRoomsCount: PropTypes.func,
+  handleBedroomFilter: PropTypes.func,
+  IncrementBedroomCount: PropTypes.func,
+  DecrementBedroomCount: PropTypes.func,
+  IncrementFloorCount: PropTypes.func,
+  DecrementFloorCount: PropTypes.func,
+  handleFloorFilter: PropTypes.func,
+  floorCount: PropTypes.number,
+  IncrementBathroomCount: PropTypes.func,
+  DecrementBathroomCount: PropTypes.func,
+  handleBathroomFilter: PropTypes.func,
+  bathroomCount: PropTypes.number
 };
 
 export default DetailsDropdown;

@@ -19,9 +19,21 @@ const FilterControls = ({
   handleSizeToggle,
   handlePriceToggle,
   handleRoomsFilter,
-  handleIncrementCount,
-  handleDecrementCount,
-  count }) => {
+  IncrementRoomsCount,
+  DecrementRoomsCount,
+  handleBedroomFilter,
+  IncrementBedroomCount,
+  DecrementBedroomCount,
+  roomCount,
+  bedroomCount,
+  IncrementFloorCount,
+  DecrementFloorCount,
+  handleFloorFilter,
+  floorCount,
+  IncrementBathroomCount,
+  DecrementBathroomCount,
+  handleBathroomFilter,
+  bathroomCount }) => {
   return (
     <div className="filter-container">
       <RangeSlider
@@ -41,11 +53,22 @@ const FilterControls = ({
       <DetailsDropdown
         label="Details"
         resetFilters={resetFilters}
-        apartmentItems={apartmentsLocation.items}
         handleRoomsFilter={handleRoomsFilter}
-        handleIncrementCount={handleIncrementCount}
-        handleDecrementCount={handleDecrementCount}
-        count={count}
+        IncrementRoomsCount={IncrementRoomsCount}
+        DecrementRoomsCount={DecrementRoomsCount}
+        handleBedroomFilter={handleBedroomFilter}
+        IncrementBedroomCount={IncrementBedroomCount}
+        DecrementBedroomCount={DecrementBedroomCount}
+        roomCount={roomCount}
+        bedroomCount={bedroomCount}
+        IncrementFloorCount={IncrementFloorCount}
+        DecrementFloorCount={DecrementFloorCount}
+        handleFloorFilter={handleFloorFilter}
+        floorCount={floorCount}
+        IncrementBathroomCount={IncrementBathroomCount}
+        DecrementBathroomCount={DecrementBathroomCount}
+        handleBathroomFilter={handleBathroomFilter}
+        bathroomCount={bathroomCount}
       />
       <CheckboxDropdown
         label="Amenities"
@@ -78,7 +101,23 @@ FilterControls.propTypes = {
   handlePriceFilter: PropTypes.func,
   handleSizeToggle: PropTypes.func,
   handlePriceToggle: PropTypes.func,
-  rangeValue: PropTypes.any
+  rangeValue: PropTypes.any,
+  handleRoomsFilter: PropTypes.func,
+  IncrementRoomsCount: PropTypes.func,
+  DecrementRoomsCount: PropTypes.func,
+  handleBedroomFilter: PropTypes.func,
+  IncrementBedroomCount: PropTypes.func,
+  DecrementBedroomCount: PropTypes.func,
+  roomCount: PropTypes.number,
+  bedroomCount: PropTypes.number,
+  IncrementFloorCount: PropTypes.func,
+  DecrementFloorCount: PropTypes.func,
+  handleFloorFilter: PropTypes.func,
+  floorCount: PropTypes.number,
+  IncrementBathroomCount: PropTypes.func,
+  DecrementBathroomCount: PropTypes.func,
+  handleBathroomFilter: PropTypes.func,
+  bathroomCount: PropTypes.number
 };
 
 const mapStateToProps = state => ({
