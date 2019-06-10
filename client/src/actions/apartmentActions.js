@@ -31,16 +31,14 @@ export const fetchApartment = _id => dispatch => {
       }
     }`,
     })
-    .then(apartment =>
-      dispatch({
-        type: FETCH_APARTMENT,
-        payload: apartment.data,
-      }),
+    .then(apartment => dispatch({
+      type: FETCH_APARTMENT,
+      payload: apartment.data,
+    }),
     )
-    .catch(error =>
-      dispatch({
-        type: FETCH_APARTMENT_ERROR,
-        payload: error,
-      }),
+    .catch(error => dispatch({
+      type: FETCH_APARTMENT_ERROR,
+      payload: error,
+    }),
     );
 };

@@ -22,5 +22,5 @@ export default class ApartmentAmentityView extends React.Component {
 
 ApartmentAmentityView.propTypes = {
   apartment: PropTypes.object.isRequired,
-  limit: PropTypes.number,
+  limit: PropTypes.string,
 };

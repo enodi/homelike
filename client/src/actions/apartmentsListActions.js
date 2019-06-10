@@ -3,7 +3,7 @@ import {
   FETCH_APARTMENTS_LIST,
   FETCH_APARTMENTS_LIST_ERROR,
   FETCH_APARTMENTS_LOCATION_LIST,
-  FETCH_APARTMENTS_LOCATION_LIST_ERROR,
+  FETCH_APARTMENTS_LOCATION_LIST_ERROR
 } from "./types";
 import client from "../ApolloClient";
 
@@ -32,18 +32,14 @@ export const fetchApartmentsList = () => dispatch => {
         }
       `,
     })
-    .then(apartments => {
-      dispatch({
-        type: FETCH_APARTMENTS_LIST,
-        payload: apartments.data,
-      });
-    })
-    .catch(error => {
-      dispatch({
-        type: FETCH_APARTMENTS_LIST_ERROR,
-        payload: error,
-      });
-    });
+    .then(apartments => dispatch({
+      type: FETCH_APARTMENTS_LIST,
+      payload: apartments.data,
+    }))
+    .catch(error => dispatch({
+      type: FETCH_APARTMENTS_LIST_ERROR,
+      payload: error,
+    }));
 };
 
 export const fetchApartmentsListForLocation = locationId => dispatch => {
@@ -70,16 +66,12 @@ export const fetchApartmentsListForLocation = locationId => dispatch => {
       }
       `,
     })
-    .then(apartments => {
-      dispatch({
-        type: FETCH_APARTMENTS_LOCATION_LIST,
-        payload: { data: apartments.data, locationId },
-      });
-    })
-    .catch(error => {
-      dispatch({
-        type: FETCH_APARTMENTS_LOCATION_LIST_ERROR,
-        payload: error,
-      });
-    });
+    .then(apartments => dispatch({
+      type: FETCH_APARTMENTS_LOCATION_LIST,
+      payload: { data: apartments.data, locationId },
+    }))
+    .catch(error => dispatch({
+      type: FETCH_APARTMENTS_LOCATION_LIST_ERROR,
+      payload: error,
+    }));
 };

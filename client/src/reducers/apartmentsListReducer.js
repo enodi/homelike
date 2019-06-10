@@ -2,12 +2,11 @@ import {
   FETCH_APARTMENTS_LIST,
   FETCH_APARTMENTS_LIST_ERROR,
   FETCH_APARTMENTS_LOCATION_LIST,
-  FETCH_APARTMENTS_LOCATION_LIST_ERROR,
+  FETCH_APARTMENTS_LOCATION_LIST_ERROR
 } from "../actions/types";
 
 const initialState = {
-  apartments: {},
-  apartmentsForLocation: {},
+  apartments: {}
 };
 
 export default (state = initialState, action) => {
