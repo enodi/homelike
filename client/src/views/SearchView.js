@@ -7,6 +7,7 @@ import ApartmentTileView from "./ApartmentTileView";
 import Header from "./HeaderView";
 import FilterControls from "../components/FilterControls";
 
+
 const SearchView = ({
   apartmentsForLocation,
   fetchApartmentsListForLocation,
@@ -27,6 +28,12 @@ const SearchView = ({
     fetchLocationsList();
     fetchApartmentsListForLocation(locationId);
   }, []);
+
+  useEffect(() => {
+    if (apartmentsForLocation.items) {
+      setApartmentItems(apartmentsForLocation.items);
+    }
+  }, [apartmentsForLocation, setApartmentItems]);
 
   const handleCheckboxToggle = (event) => {
     const { value } = event.target;
@@ -159,7 +166,7 @@ const SearchView = ({
   };
 
   const resetFilters = () => {
-    setApartmentItems([]);
+    setApartmentItems(apartmentsForLocation.items);
     setSelectedItems([]);
     setRoomCount(0);
     setBedroomCount(0);
@@ -218,15 +225,9 @@ const SearchView = ({
         <div className="location-wrapper">
           <div className="view-apartment-list location-item">
             {
-              apartmentItems.length > 0
-                ?
-                apartmentItems.map(item => (
-                  <ApartmentTileView key={uniqueId()} apartment={item}/>
-                ))
-                :
-                apartmentsForLocation.items.map(item => (
-                  <ApartmentTileView key={item._id} apartment={item}/>
-                ))
+              apartmentItems.map(item => (
+                <ApartmentTileView key={uniqueId()} apartment={item}/>
+              ))
             }
             
           </div>
